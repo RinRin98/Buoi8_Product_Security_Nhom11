@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout.html :: layout}"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/static/css/templatemo_style.css}" />
+</head>
+<body>
+<div th:fragment="content_right">
+    <div class="hero_area">
+        <section class="contact_section layout_padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="container ">
+                            <div class="heading_container ">
+                                <h2 class="">
+
+                                        <span>
+                                                        Create new Account
+                                    </span>
+
+                                </h2>
+                            </div>
+                        </div>
+                        <form th:action="@{/register}" th:object="${user}" method="post" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="fullname" class="form-label">Full Name:</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control" id="fullname" th:field="*{fullname}" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label><span class="text-danger">*</span>
+                                <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">User Name:</label><span class="text-danger">*</span>
+                                <input type="text" class="form-control" id="username" th:field="*{username}" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label><span class="text-danger">*</span>
+                                <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <label></label>
+                                <label></label>
+                                <button type="submit" class="btn btn-info">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+</body>
+</html>
+
+
